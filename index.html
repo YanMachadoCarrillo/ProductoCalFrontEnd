@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Precios - Tienda de Ropa</title>
+    <!-- Archivo de estilos externo -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Tienda de Ropa</h1>
+
+        <form id="calculatorForm">
+            <!-- Código (letras y números) -->
+            <div class="form-group">
+                <label for="codigo">Código del Producto</label>
+                <input type="text" id="codigo" name="codigo" pattern="[A-Za-z0-9]+"
+                    title="Solo ingrese letras y números" required placeholder="Ej. A10293X">
+            </div>
+
+            <!-- Nombre (solo texto) -->
+            <div class="form-group">
+                <label for="nombre">Nombre de la Prenda</label>
+                <input type="text" id="nombre" name="nombre" pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+"
+                    title="Solo ingrese letras y espacios" required placeholder="Ej. Camiseta Azul">
+            </div>
+
+            <!-- Costo Base (solo digito numerico) -->
+            <div class="form-group">
+                <label for="costoBase">Costo Base ($)</label>
+                <input type="number" id="costoBase" name="costoBase" step="0.01" required placeholder="0.00">
+            </div>
+
+            <!-- Descuento (solo numerico) -->
+            <div class="form-group">
+                <label for="descuento">Descuento (%)</label>
+                <input type="number" id="descuento" name="descuento" step="0.01" min="0" max="100" required
+                    placeholder="0">
+            </div>
+
+            <!-- IVA (solo numerico) -->
+            <div class="form-group">
+                <label for="iva">IVA (%)</label>
+                <input type="number" id="iva" name="iva" step="0.01" min="0" max="100" required placeholder="19">
+            </div>
+
+            <!-- Error global -->
+            <div id="globalError" class="error-message"></div>
+
+            <button type="submit" id="btnCalcular">
+                <span class="spinner" id="btnSpinner"></span>
+                <span id="btnText">Calcular Precio</span>
+            </button>
+        </form>
+
+        <div class="result-container" id="resultContainer">
+            <div class="result-item"
+                style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; text-transform: uppercase;">
+                <strong>Producto:</strong>
+                <strong id="resNombre" style="color: var(--primary-color);"></strong>
+            </div>
+            <div class="result-item">
+                <span>Costo Base:</span>
+                <span id="resBase">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span>Descuento aplicado:</span>
+                <span id="resDescuento">-$0.00</span>
+            </div>
+            <div class="result-item">
+                <span>Subtotal (con descuento):</span>
+                <span id="resSubtotal">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span>IVA aplicado:</span>
+                <span id="resIva">+$0.00</span>
+            </div>
+            <div class="result-total">
+                <span>Precio Final:</span>
+                <span id="resFinal">$0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Archivo de scripts externo -->
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
