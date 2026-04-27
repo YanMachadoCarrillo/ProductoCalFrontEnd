@@ -20,7 +20,7 @@ document.getElementById('calculatorForm').addEventListener('submit', async funct
 
     try {
         // IMPORTANTE: Eliminamos el /api/ y usamos /calcular
-        const response = await fetch('https://productocal.onrender.com/api/calculate', {
+        const response = await fetch('https://productocal.onrender.com/calculate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
